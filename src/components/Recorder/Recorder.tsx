@@ -5,7 +5,7 @@ import { selectDateStart, start, stop } from '../../redux/recorder';
 
 import styles from './Recorder.module.css';
 
-const addZero = (num: number) => (num < 10 ? `0${num}` : `${num}`);
+export const addZero = (num: number) => (num < 10 ? `0${num}` : `${num}`);
 
 const Recorder = () => {
   const dispatch = useDispatch();

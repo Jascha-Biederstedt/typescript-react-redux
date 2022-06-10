@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectDateStart, start, stop } from '../../redux/recorder';
+import { createUserEvent } from '../../redux/user-events';
 
 import styles from './Recorder.module.css';
 
@@ -18,6 +19,8 @@ const Recorder = () => {
   const handleClick = () => {
     if (started) {
       window.clearInterval(interval.current);
+      // @ts-ignore
+      dispatch(createUserEvent());
       dispatch(stop());
     } else {
       dispatch(start());

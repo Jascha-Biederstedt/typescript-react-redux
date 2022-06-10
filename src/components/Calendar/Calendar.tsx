@@ -8,6 +8,7 @@ import {
   UserEvent,
 } from '../../redux/user-events';
 import { addZero } from '../Recorder/Recorder';
+import EventItem from './EventItem';
 
 import styles from './Calendar.module.css';
 
@@ -90,21 +91,7 @@ const Calendar: React.FC<Props> = ({ events, loadUserEvents }) => {
             </div>
             <div className={styles.calendarEvents}>
               {events.map(event => {
-                return (
-                  <div key={event.id} className={styles.calendarEvent}>
-                    <div className={styles.calendarEventInfo}>
-                      <div className={styles.calendarEventTime}>
-                        10:00 - 12:00
-                      </div>
-                      <div className={styles.calendarEventTitle}>
-                        {event.title}
-                      </div>
-                    </div>
-                    <button className={styles.calendarEventDeleteButton}>
-                      &times;
-                    </button>
-                  </div>
-                );
+                return <EventItem key={event.id} event={event} />;
               })}
             </div>
           </div>
